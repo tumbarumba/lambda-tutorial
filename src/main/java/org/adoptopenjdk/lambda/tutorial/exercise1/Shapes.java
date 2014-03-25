@@ -48,7 +48,7 @@ public class Shapes {
      * @see Shape#setColor(Color)
      */
     public static void colorAll(List<Shape> shapes, Color newColor) {
-        // [your code here]
+        shapes.forEach(s -> s.setColor(newColor));
     }
 
     /**
@@ -68,7 +68,7 @@ public class Shapes {
      * @see Shape#toString()
      */
     public static void makeStringOfAllColors(List<Shape> shapes, StringBuilder stringBuilder) {
-        // [your code here]
+        shapes.forEach(s -> stringBuilder.append(s));
     }
 
     /**
@@ -93,6 +93,6 @@ public class Shapes {
      * @see Shape#toString()
      */
     public static void changeColorAndMakeStringOfOldColors(List<Shape> shapes, Color newColor, StringBuilder stringBuilder) {
-        // [your code here]
+        shapes.forEach(s -> {stringBuilder.append(s); s.setColor(newColor);});
     }
 }

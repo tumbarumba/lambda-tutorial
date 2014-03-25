@@ -28,8 +28,6 @@ import org.adoptopenjdk.lambda.tutorial.exercise5.musicplayer.Song;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Random;
 
 public class CloudScrobblingMusicLibrary implements MusicLibrary {
     private final CloudScrobblingService cloudScrobblingService;
@@ -42,6 +40,12 @@ public class CloudScrobblingMusicLibrary implements MusicLibrary {
     public Collection<Song> allSongs() {
         return cloudScrobblingService.retrieveAllSongs();
     }
+
+    @Override
+    public Rating ratingOf(Song song) {
+        return new Rating(cloudScrobblingService.retrieveScrobbledRatingOf(song));
+    }
+
 
     @Override
     public int timesPlayed(Song song) {

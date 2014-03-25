@@ -44,6 +44,10 @@ public interface MusicLibrary {
         }
     }
 
+    default List<Song> sortedByArtist() {
+        return SongByArtistSorter.sort(allSongs());
+    }
+
     /**
      * Provides a rating for this song, between 1-100, inclusive.
      *

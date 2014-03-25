@@ -31,4 +31,10 @@ public interface UserRatedMusicLibrary extends MusicLibrary {
             return new Rating(starRating.numberOfStars * 20);
         }
     }
+
+    default Rating ratingOf(Song song) {
+        StarRatingConverter starRatingConverter = new StarRatingConverter();
+        return starRatingConverter.convert(userRatingOf(song));
+    }
+
 }
